@@ -6,8 +6,6 @@
 	<property name="result" value="./result" />
 	<property name="temp" value="./temp" />
 	<property name="screenshot" value="./screenshot" />
-	<!-- 接收测试报告的邮箱 -->
-	<property name="mail_to" value="779230186@qq.com" />
 
 	<path id="test.classpath">
 		<pathelement location="${bin}" />
@@ -36,12 +34,6 @@
 
 
 	<target name="runUITests" depends="compile">
-		<delete dir="${result}" />
-		<mkdir dir="${result}" />
-		<delete dir="${temp}" />
-		<mkdir dir="${temp}" />
-		<delete dir="${screenshot}" />
-		<mkdir dir="${screenshot}" />
 		<mkdir dir="${result}/xml" />
 		<junit printsummary="yes" haltonfailure="no" errorproperty="test.failed" failureproperty="test.failed">
 			<classpath>
@@ -88,27 +80,13 @@
 			</test>   -->
 
 		</junit>
-		<junitreport todir="${result}">
+		<!--	<junitreport todir="${result}">
 			<fileset dir="${result}/xml">
 				<include name="TEST*.xml" />
 			</fileset>
 			<report format="frames" todir="${result}/html" />
-		</junitreport>
+		</junitreport>-->
 		<fail message="UI test failed.." if="test.failed" />
-	</target>
-
-	<target name="sendmail">
-		<mail mailhost="smtp.exmail.qq.com" user="shenpp@cpsdna.com" password="!QAZ2wsx" subject="自动化测试结果" mailport="25">
-			<from address="shenpp@cpsdna.com" />
-			<to address="${mail_to}" />
-			<message>
-			</message>
-			<attachments>
-				<fileset dir="${result}/xml">
-					<include name="TEST*.xml" />
-				</fileset>
-			</attachments>
-		</mail>
 	</target>
 
 </project>
