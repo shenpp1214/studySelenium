@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="test" default="runUITests" basedir=".">
+	<property name="src" value="./src" />
+	<property name="libs" value="./libs" />
+	<property name="bin" value="./bin" />
+	<property name="result" value="./result" />
+	<property name="temp" value="./temp" />
+	<property name="screenshot" value="./screenshot" />
+	<!-- 接收测试报告的邮箱 -->
+	<property name="mail_to" value="779230186@qq.com" />
+
+	<path id="test.classpath">
+		<pathelement location="${bin}" />
+		<fileset dir="${libs}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<target name="init">
+		<delete dir="${bin}" />
+		<mkdir dir="${bin}" />
+	</target>
+
+	<target name="compile" depends="init">
+		<javac source="1.8" srcdir="${src}" fork="true" destdir="${bin}" includeantruntime="false">
+			<compilerarg line="-encoding UTF-8 " />
+			<classpath>
+				<pathelement path="${bin}">
+				</pathelement>
+				<fileset dir="${libs}">
+					<include name="**/*.jar" />
+				</fileset>
+			</classpath>
+		</javac>
+	</target>
+
+
+	<target name="runUITests" depends="compile">
+		<delete dir="${result}" />
+		<mkdir dir="${result}" />
+		<delete dir="${temp}" />
+		<mkdir dir="${temp}" />
+		<delete dir="${screenshot}" />
+		<mkdir dir="${screenshot}" />
+		<mkdir dir="${result}/xml" />
+		<junit printsummary="yes" haltonfailure="no" errorproperty="test.failed" failureproperty="test.failed">
+			<classpath>
+				<pathelement location="${bin}" />
+				<fileset dir="${libs}">
+					<include name="**/*.jar" />
+				</fileset>
+				<pathelement location="${src}" />
+			</classpath>
+
+			<test name="test.AlertTest" haltonfailure="no" todir="${result}/xml">
+				<formatter type="xml" />
+			</test>
+			<test name="test.BaiduTest" haltonfailure="no" todir="${result}/xml">
+				<formatter type="xml" />
+			</test>
+			<test name="test.BaiduTest01" haltonfailure="no" todir="${result}/xml">
+				<formatter type="xml" />
+			</test>
+			<test name="test.CookieOpe" haltonfailure="no" todir="${result}/xml">
+				<formatter type="xml" />
+			</test>
+			<test name="test.JSTest" haltonfailure="no" todir="${result}/xml">
+				<formatter type="xml" />
+			</test>
+			<test name="test.MailTest" haltonfailure="no" todir="${result}/xml">
+				<formatter type="xml" />
+			</test>
+			<!--<test name="test.UpFile" haltonfailure="no" todir="${result}/xml">
+				<formatter type="xml" />
+			</test> -->
+			<test name="test.WindowSwitch" haltonfailure="no" todir="${result}/xml">
+				<formatter type="xml" />
+			</test>
+
+			<!--		<test name="vsp.Test001" haltonfailure="no" todir="${result}/xml">
+				<formatter type="xml" />
+			</test>
+			<test name="vsp.Test002" haltonfailure="no" todir="${result}/xml">
+				<formatter type="xml" />
+			</test>
+			<test name="vsp.Test003" haltonfailure="no" todir="${result}/xml">
+				<formatter type="xml" />
+			</test>   -->
+
+		</junit>
+		<junitreport todir="${result}">
+			<fileset dir="${result}/xml">
+				<include name="TEST*.xml" />
+			</fileset>
+			<report format="frames" todir="${result}/html" />
+		</junitreport>
+		<fail message="UI test failed.." if="test.failed" />
+	</target>
+
+	<target name="sendmail">
+		<mail mailhost="smtp.exmail.qq.com" user="shenpp@cpsdna.com" password="!QAZ2wsx" subject="自动化测试结果" mailport="25">
+			<from address="shenpp@cpsdna.com" />
+			<to address="${mail_to}" />
+			<message>
+			</message>
+			<attachments>
+				<fileset dir="${result}/xml">
+					<include name="TEST*.xml" />
+				</fileset>
+			</attachments>
+		</mail>
+	</target>
+
+</project>
