@@ -47,7 +47,7 @@
 			<test name="test.AlertTest" haltonfailure="no" todir="${result}/xml">
 				<formatter type="xml" />
 			</test>
-			<!--	<test name="test.BaiduTest" haltonfailure="no" todir="${result}/xml">
+			<test name="test.BaiduTest" haltonfailure="no" todir="${result}/xml">
 				<formatter type="xml" />
 			</test>
 			<test name="test.BaiduTest01" haltonfailure="no" todir="${result}/xml">
@@ -77,7 +77,7 @@
 			</test>
 			<test name="vsp.Test003" haltonfailure="no" todir="${result}/xml">
 				<formatter type="xml" />
-			</test>   -->
+			</test>
 
 		</junit>
 		<junitreport todir="${result}">
