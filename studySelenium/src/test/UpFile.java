@@ -15,7 +15,7 @@ import baseService.BaseService;
 
 public class UpFile extends BaseService {
 	@Before
-	public void setUp() throws InterruptedException {
+	public void setUp() throws Exception {
 		openBrower("http://58.215.50.61:21080/omp/index");
 	}
 
@@ -35,7 +35,7 @@ public class UpFile extends BaseService {
 
 		dr.findElement(By.linkText("车辆设备批量导入")).click();
 		Thread.sleep(3000);
-		dr.findElement(By.id("importFile")).sendKeys("F:\\shenpp\\测试模板.txt");// 获取模板
+		dr.findElement(By.id("importFile")).sendKeys(getTemplatePath("omp_tem"));// 获取模板
 		dr.findElement(By.id("b_next")).click();// 点击"导入"
 		Thread.sleep(1500);
 
@@ -43,6 +43,7 @@ public class UpFile extends BaseService {
 		alert.accept();// 点击提示框中的确定
 		new WebDriverWait(dr, 30)
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul[@class='errorMessage']//span")));
+		sleep(5000);
 
 		assertEquals("导入文件上载失败!", dr.findElement(By.xpath("//ul[@class='errorMessage']//span")).getText());// 校验导入失败
 	}

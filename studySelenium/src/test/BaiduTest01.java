@@ -9,7 +9,7 @@ import baseService.BaseService;
 
 public class BaiduTest01 extends BaseService {
 	@Before
-	public void setUp() {
+	public void setUp() throws Exception {
 		openBrower("http://www.baidu.com");
 	}
 

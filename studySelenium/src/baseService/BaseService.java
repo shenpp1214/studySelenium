@@ -1,20 +1,31 @@
 package baseService;
 
+import org.junit.Rule;
+import org.junit.rules.Timeout;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import baseService.PropertiesReader;
+
 import static org.junit.Assert.assertEquals;
+
+import java.util.Properties;
 
 public class BaseService {
 	protected static WebDriver dr;
+	protected static Properties props;
+	@Rule
+	public Timeout globalTimeout = new Timeout(10 * 60 * 1000);// 设置超时10分钟
 
-	public static void openBrower(String url) {
+	public static void openBrower(String url) throws Exception {
+		props = new PropertiesReader().load();
+
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");
-		
+
 		dr = new ChromeDriver();
 		dr.manage().window().maximize();
 		dr.get(url);
@@ -56,5 +67,10 @@ public class BaseService {
 		} catch (NoSuchElementException e) {
 			return false;
 		}
+	}
+
+	protected String getTemplatePath(String key) {
+		return System.getProperty("user.dir") + System.getProperty("file.separator") + "template"
+				+ System.getProperty("file.separator") + props.getProperty(key);
 	}
 }

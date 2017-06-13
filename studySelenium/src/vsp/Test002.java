@@ -16,7 +16,7 @@ import baseService.BaseService;
 public class Test002 extends BaseService {
 
 	@BeforeClass
-	public static void openBrowerTest01() {
+	public static void openBrowerTest01() throws Exception {
 		openBrower("http://58.215.50.61:22080/vsp/index.jsp");
 	}
 
