@@ -16,7 +16,7 @@ import baseService.BaseService;
 public class UpFile extends BaseService {
 	@Before
 	public void setUp() throws Exception {
-		openBrower("http://58.215.50.61:21080/omp/index");
+		openBrower("omp_url");
 	}
 
 	@Test

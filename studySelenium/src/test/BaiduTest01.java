@@ -10,7 +10,7 @@ import baseService.BaseService;
 public class BaiduTest01 extends BaseService {
 	@Before
 	public void setUp() throws Exception {
-		openBrower("http://www.baidu.com");
+		openBrower("baidu_url");
 	}
 
 	public static String searchText(String text) throws InterruptedException {

@@ -14,7 +14,7 @@ import java.util.Set;
 public class WindowSwitch extends BaseService {
 	@Before
 	public void setUp() throws Exception {
-		openBrower("http://www.cnblogs.com/TankXiao/p/5252754.html");
+		openBrower("win_url");
 	}
 
 	@Test

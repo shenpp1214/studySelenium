@@ -43,15 +43,15 @@ public class BaseService {
 	}
 
 	public void loginVsp(String user, String pwd, String val) throws InterruptedException {
-		dr.findElement(By.id("loginemail")).sendKeys(user);// 输入用户名
-		dr.findElement(By.id("loginpassword")).sendKeys(pwd);// 输入密码
-		dr.findElement(By.id("loginvalidate")).sendKeys(val);// 输入验证码
+		dr.findElement(By.id("loginemail")).sendKeys(props.getProperty(user));// 用户名
+		dr.findElement(By.id("loginpassword")).sendKeys(props.getProperty(pwd));// 密码
+		dr.findElement(By.id("loginvalidate")).sendKeys(props.getProperty(val));// 验证码
 		dr.findElement(By.id("loginbtn")).click();// 登录
 		sleep(8000);
 	}
 
 	public void loginOmp() throws InterruptedException {
-		dr.findElement(By.name("username")).sendKeys(props.getProperty("ompadmin"));
+		dr.findElement(By.name("username")).sendKeys(props.getProperty("ompuser"));
 		dr.findElement(By.name("password")).sendKeys(props.getProperty("omppwd"));
 		dr.findElement(By.xpath("//input[@value='登  录']")).click();
 

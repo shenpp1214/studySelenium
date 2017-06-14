@@ -17,12 +17,12 @@ public class Test002 extends BaseService {
 
 	@BeforeClass
 	public static void openBrowerTest01() throws Exception {
-		openBrower("http://58.215.50.61:22080/vsp/index.jsp");
+		openBrower("vsp_url");
 	}
 
 	@Before
 	public void setUp() throws InterruptedException {
-		loginVsp(props.getProperty("admin"), props.getProperty("adminpwd"), props.getProperty("loginvalidate"));
+		loginVsp("vspuser", "vsppwd", "val");
 		dr.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 
