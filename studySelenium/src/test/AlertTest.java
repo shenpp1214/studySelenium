@@ -12,7 +12,7 @@ public class AlertTest extends BaseService {
 
 	@Before
 	public void setUp() throws Exception {
-		openBrower(props.getProperty("baidu_url"));
+		openBrower("http://www.baidu.com");
 	}
 
 	@Test

@@ -12,7 +12,7 @@ import baseService.BaseService;
 public class CookieOpe extends BaseService {
 	@Before
 	public void setUp() throws Exception {
-		openBrower(props.getProperty("baidu_url"));
+		openBrower("http://www.baidu.com");
 	}
 
 	@Test

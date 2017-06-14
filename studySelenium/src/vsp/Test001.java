@@ -19,7 +19,7 @@ public class Test001 extends BaseService {
 
 	@BeforeClass
 	public static void openBrowerTest01() throws Exception {
-		openBrower(props.getProperty("vsp_url"));
+		openBrower("http://58.215.50.61:22080/vsp/index.jsp");
 	}
 
 	@Before
