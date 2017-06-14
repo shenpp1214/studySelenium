@@ -29,7 +29,7 @@ public class BaseService {
 
 		dr = new ChromeDriver();
 		dr.manage().window().maximize();
-		dr.get(url);
+		dr.get(props.getProperty(url));
 	}
 
 	public static void close() {
@@ -43,9 +43,9 @@ public class BaseService {
 	}
 
 	public void loginVsp(String user, String pwd, String val) throws InterruptedException {
-		dr.findElement(By.id("loginemail")).sendKeys(props.getProperty(user));// 用户名
-		dr.findElement(By.id("loginpassword")).sendKeys(props.getProperty(pwd));// 密码
-		dr.findElement(By.id("loginvalidate")).sendKeys(props.getProperty(val));// 验证码
+		dr.findElement(By.id("loginemail")).sendKeys(props.getProperty(user));// 输入用户名
+		dr.findElement(By.id("loginpassword")).sendKeys(props.getProperty(pwd));// 输入密码
+		dr.findElement(By.id("loginvalidate")).sendKeys(props.getProperty(val));// 输入验证码
 		dr.findElement(By.id("loginbtn")).click();// 登录
 		sleep(8000);
 	}

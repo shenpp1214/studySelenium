@@ -31,7 +31,7 @@ public class UpFile extends BaseService {
 
 		dr.findElement(By.linkText("车辆设备批量导入")).click();
 		Thread.sleep(3000);
-		dr.findElement(By.id("importFile")).sendKeys(getTemplatePath("omp_tem"));// 获取模板
+		dr.findElement(By.id("importFile")).sendKeys(getTemplatePath("omp_temp"));// 获取模板
 		dr.findElement(By.id("b_next")).click();// 点击"导入"
 		Thread.sleep(1500);
 
@@ -48,5 +48,4 @@ public class UpFile extends BaseService {
 	public void tearTown() throws InterruptedException {
 		close();
 	}
-
 }
