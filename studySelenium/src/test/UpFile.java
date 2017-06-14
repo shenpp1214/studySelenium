@@ -16,16 +16,12 @@ import baseService.BaseService;
 public class UpFile extends BaseService {
 	@Before
 	public void setUp() throws Exception {
-		openBrower("http://58.215.50.61:21080/omp/index");
+		openBrower(props.getProperty("omp_url"));
 	}
 
 	@Test
 	public void upFile() throws InterruptedException {
-		dr.findElement(By.name("username")).sendKeys("shenpp");
-		dr.findElement(By.name("password")).sendKeys("000000");
-		dr.findElement(By.xpath("//input[@value='登  录']")).click();
-		new WebDriverWait(dr, 15).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.name("main1")));
-		Thread.sleep(2000);
+		loginOmp();
 
 		Actions act = new Actions(dr);
 		act.clickAndHold(dr.findElement(By.xpath("//*[@id='backgroundHolder']/ul/li[6]/a/b"))).perform();// 鼠标悬停

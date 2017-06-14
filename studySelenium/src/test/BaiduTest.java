@@ -14,7 +14,7 @@ import org.junit.Test;
 public class BaiduTest extends BaseService {
 	@Before
 	public void setUp() throws Exception {
-		openBrower("http://www.baidu.com");
+		openBrower(props.getProperty("baidu_url"));
 	}
 
 	@Test

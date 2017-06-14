@@ -7,6 +7,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import baseService.PropertiesReader;
 
@@ -23,8 +25,7 @@ public class BaseService {
 	public static void openBrower(String url) throws Exception {
 		props = new PropertiesReader().load();
 
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", props.getProperty("driver_path"));
 
 		dr = new ChromeDriver();
 		dr.manage().window().maximize();
@@ -47,6 +48,15 @@ public class BaseService {
 		dr.findElement(By.id("loginvalidate")).sendKeys(val);// 输入验证码
 		dr.findElement(By.id("loginbtn")).click();// 登录
 		sleep(8000);
+	}
+
+	public void loginOmp() throws InterruptedException {
+		dr.findElement(By.name("username")).sendKeys(props.getProperty("ompadmin"));
+		dr.findElement(By.name("password")).sendKeys(props.getProperty("omppwd"));
+		dr.findElement(By.xpath("//input[@value='登  录']")).click();
+
+		new WebDriverWait(dr, 15).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.name("main1")));
+		Thread.sleep(2000);
 	}
 
 	public void logout() throws InterruptedException {

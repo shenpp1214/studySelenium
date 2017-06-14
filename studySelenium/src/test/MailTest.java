@@ -12,7 +12,7 @@ import baseService.BaseService;
 public class MailTest extends BaseService {
 	@Before
 	public void setUp() throws Exception {
-		openBrower("http://mail.cpsdna.com/");
+		openBrower(props.getProperty("mail_url"));
 	}
 
 	@Test
