@@ -19,7 +19,6 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Properties;
 import baseService.PropertiesReader;
 
@@ -35,17 +34,9 @@ public class BaseService {
 
 		System.setProperty("webdriver.chrome.driver", props.getProperty("driver_path"));
 
-		String downloadFilepath = "E:\temp";
-		Map<String, Object> contentSettings = new HashMap<String, Object>();
 		HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-		contentSettings.put("multiple-automatic-downloads", 1);
-		chromePrefs.put("profile.default_content_settings", contentSettings);
-		chromePrefs.put("download.prompt_for_download", "false");
-		chromePrefs.put("browser.download.dir", downloadFilepath);
-
-		// chromePrefs.put("download.prompt_for_download", "false");
-		// chromePrefs.put("profile.default_content_settings.popups", 0);
-		// chromePrefs.put("download.default_directory", downloadFilepath);
+		chromePrefs.put("download.default_directory",
+				System.getProperty("user.dir") + System.getProperty("file.separator") + "temp");// 指定chrome下载文件路径
 
 		ChromeOptions option = new ChromeOptions();
 		option.setExperimentalOption("prefs", chromePrefs);
