@@ -13,8 +13,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import baseService.poi.SeleniumExcel;
 
-import baseService.PropertiesReader;
-
 import static org.junit.Assert.assertEquals;
 
 import java.io.File;
@@ -23,6 +21,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+import baseService.PropertiesReader;
 
 public class BaseService {
 	protected static WebDriver dr;
