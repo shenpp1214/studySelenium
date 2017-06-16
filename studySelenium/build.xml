@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="test" default="runUITests" basedir=".">
+
 	<property name="src" value="./src" />
 	<property name="libs" value="./libs" />
 	<property name="bin" value="./bin" />
@@ -34,6 +35,10 @@
 
 
 	<target name="runUITests" depends="compile">
+		<delete dir="${result}" />
+		<mkdir dir="${result}" />
+		<delete dir="${temp}" />
+		<mkdir dir="${temp}" />
 		<mkdir dir="${result}/xml" />
 		<junit printsummary="yes" haltonfailure="no" errorproperty="test.failed" failureproperty="test.failed">
 			<classpath>
