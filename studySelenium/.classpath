@@ -5,5 +5,11 @@
 	<classpathentry kind="lib" path="F:/安装资料/jar包/selenium-server-standalone-2.46.0.jar"/>
 	<classpathentry kind="lib" path="F:/安装资料/jar包/mysql-connector-java-5.1.26-bin.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="F:/安装资料/jar包/poi/poi-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="F:/安装资料/jar包/poi/poi-examples-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="F:/安装资料/jar包/poi/poi-excelant-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="F:/安装资料/jar包/poi/poi-ooxml-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="F:/安装资料/jar包/poi/poi-ooxml-schemas-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="F:/安装资料/jar包/poi/poi-scratchpad-3.9-20121203.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
