@@ -76,7 +76,18 @@ public class BaseService {
 		dr.switchTo().defaultContent();
 		dr.findElement(By.id("logout")).click();
 		sleep(3000);
+
 		assertEquals("用户登录", dr.findElement(By.className("border-bottom")).getText());
+	}
+
+	public void logoutOmp() throws InterruptedException {
+		dr.switchTo().defaultContent();
+		dr.switchTo().frame(dr.findElement(By.name("header")));
+		dr.findElement(By.linkText("退出")).click();
+		sleep(3000);
+
+		assertEquals("http://58.215.50.61:21080/omp/loginOut", dr.getCurrentUrl());
+		assertEquals("找回密码", dr.findElement(By.xpath("//a[@href='getBackPwd']")).getText());
 	}
 
 	public static void sleep(int num) throws InterruptedException {
