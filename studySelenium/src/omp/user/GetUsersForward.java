@@ -99,11 +99,12 @@ public class GetUsersForward extends BaseService {
 	}
 
 	private void exportExcel() throws Exception {
+		dr.findElement(By.id("exportbutton")).click();
+		sleep(2000);
+
 		String date = DateFormatUtils.format(new Date(), "yyyy-MM-dd");
 		String realtime = getCellValue("用户查询", 2, 6);
 		String realdate = realtime.substring(0, 10);
-		dr.findElement(By.id("exportbutton")).click();
-		sleep(2000);
 
 		assertEquals("a1._@a1._@", getCellValue("用户查询", 2, 1));
 		assertEquals("a1._@a1._@", getCellValue("用户查询", 2, 4));
