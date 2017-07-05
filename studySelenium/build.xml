@@ -37,8 +37,8 @@
 	<target name="runUITests" depends="compile">
 		<delete dir="${result}" />
 		<mkdir dir="${result}" />
-		<delete dir="${temp}" />
-		<mkdir dir="${temp}" />
+		<!--	<delete dir="${temp}" />
+		<mkdir dir="${temp}" />-->
 		<mkdir dir="${result}/xml" />
 		<junit printsummary="yes" haltonfailure="no" errorproperty="test.failed" failureproperty="test.failed">
 			<classpath>
@@ -75,6 +75,10 @@
 				<formatter type="xml" />
 			</test>
 			<test name="omp.CheckExcel" haltonfailure="no" todir="${result}/xml">
+				<formatter type="xml" />
+			</test>
+
+			<test name="omp.user.GetUsersForward" haltonfailure="no" todir="${result}/xml">
 				<formatter type="xml" />
 			</test>
 
