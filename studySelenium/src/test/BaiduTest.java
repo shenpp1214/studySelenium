@@ -24,8 +24,7 @@ public class BaiduTest extends BaseService {
 		dr.findElement(By.id("su")).sendKeys(Keys.ENTER);// enter键
 		Thread.sleep(2000);
 
-		assertEquals("张杰_百度百科",
-				dr.findElement(By.xpath("//h3[@class='t c-gap-bottom-small']")).findElement(By.tagName("a")).getText());
+		assertEquals("张杰_百度搜索", dr.getTitle());
 	}
 
 	@After
