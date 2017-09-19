@@ -27,7 +27,7 @@ public class CheckExcel extends BaseService {
 		dr.findElement(By.linkText("企业查询")).click();
 		sleep(3000);
 		dr.findElement(By.xpath("//input[@value='导  出']")).click();
-		sleep(5000);
+		sleep(8000);
 
 		assertEquals("企业名", getCellValue("企业查询", 1, 1));
 	}
