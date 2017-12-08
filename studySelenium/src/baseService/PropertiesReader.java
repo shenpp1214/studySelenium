@@ -71,7 +71,8 @@ public class PropertiesReader {
      *            The properties to set the values in.
      * @return The properties with the changed settings.
      */
-    private void replacePlaceholders() {
+    @SuppressWarnings("unused")
+	private void replacePlaceholders() {
         Properties result = new Properties();
         for (Object keyValue : testProperties.keySet()) {
             String key = (String) keyValue;
