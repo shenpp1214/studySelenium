@@ -1,7 +1,5 @@
 package baseService;
 
-import org.junit.Rule;
-import org.junit.rules.Timeout;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -26,8 +24,6 @@ public class BaseService {
 	protected static WebDriver dr;
 	protected static Properties props;
 	protected static SeleniumExcel excel;
-	@Rule
-	public Timeout globalTimeout = new Timeout(10 * 60 * 1000);// 设置超时10分钟
 
 	public static void openBrower(String url) throws Exception {
 		props = new PropertiesReader().load();
