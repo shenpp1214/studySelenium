@@ -19,9 +19,9 @@ public class BaiduTest extends BaseService {
 
 	@Test
 	public void baiduTest() throws InterruptedException {
-		dr.findElement(By.id("kw")).sendKeys("张杰哈");
-		dr.findElement(By.id("kw")).sendKeys(Keys.BACK_SPACE);// 输入回格删除
-		dr.findElement(By.id("su")).sendKeys(Keys.ENTER);// enter键
+		dr.findElement(By.id("kw")).sendKeys("张杰哈");// 输入张杰哈
+		dr.findElement(By.id("kw")).sendKeys(Keys.BACK_SPACE);// 键盘按下回格键
+		dr.findElement(By.id("su")).sendKeys(Keys.ENTER);// 键盘按下enter键
 		Thread.sleep(2000);
 
 		assertEquals("张杰_百度搜索", dr.getTitle());

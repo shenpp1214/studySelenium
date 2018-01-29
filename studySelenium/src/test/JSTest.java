@@ -17,13 +17,12 @@ public class JSTest extends BaseService {
 
 	@Test
 	public void jSTest() throws InterruptedException {
-		dr.findElement(By.id("kw")).sendKeys("selenium");
+		dr.findElement(By.id("kw")).sendKeys("java");
 		dr.findElement(By.id("su")).click();
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 
-		((JavascriptExecutor) dr).executeScript("window.scrollTo(100, document.body.scrollHeight);");
-
-		Thread.sleep(2000);
+		((JavascriptExecutor) dr).executeScript("arguments[0].scrollIntoView(true);",
+				dr.findElement(By.linkText("帮助")));
 	}
 
 	@After

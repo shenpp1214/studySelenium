@@ -16,25 +16,27 @@ public class CookieOpe extends BaseService {
 	}
 
 	@Test
-	public void cookieOpe() {
+	public void cookieOpe() throws InterruptedException {
 		Cookie c1 = new Cookie("name1", "shenpp");
 		Cookie c2 = new Cookie("name2", "panhao");
-		// 添加cookis
+
+		dr.manage().deleteAllCookies();
+		getAndSysout();
+
 		dr.manage().addCookie(c1);
 		dr.manage().addCookie(c2);
+		getAndSysout();
 
-		// 删除所有的cookis
-		// dr.manage().deleteAllCookies();
+		dr.manage().deleteCookie(c2);
+		getAndSysout();
 
-		// 获得cookis
+		dr.manage().deleteCookieNamed("name1");
+		getAndSysout();
+	}
+
+	private void getAndSysout() throws InterruptedException {
 		Set<Cookie> coo = dr.manage().getCookies();
 		System.out.println(coo);
-
-		dr.manage().deleteCookie(c1);
-		dr.manage().deleteCookieNamed("name2");
-
-		Set<Cookie> coo1 = dr.manage().getCookies();
-		System.out.println(coo1);
 	}
 
 	@After

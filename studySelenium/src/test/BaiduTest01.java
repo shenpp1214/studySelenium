@@ -13,7 +13,7 @@ public class BaiduTest01 extends BaseService {
 		openBrower("baidu_url");
 	}
 
-	public static String searchText(String text) throws InterruptedException {
+	public static String searchTest(String text) throws InterruptedException {
 		dr.findElement(By.id("kw")).sendKeys(text);
 		dr.findElement(By.id("su")).click();
 		Thread.sleep(2000);
@@ -22,18 +22,18 @@ public class BaiduTest01 extends BaseService {
 	}
 
 	@Test
-	public void baiduTest() throws InterruptedException {
+	public void baiduTest01() throws InterruptedException {
+		String[] search_text = new String[3];
+		search_text[0] = "java";
+		search_text[1] = "selenium";
+		search_text[2] = "webdriver";
 
-		String[] ser_text = new String[3];
-		ser_text[0] = "java";
-		ser_text[1] = "selenium";
-		ser_text[2] = "webdriver";
+		for (int i = 0; i < search_text.length; i++) {
+			String aaa = searchTest(search_text[i]);
+			System.out.println(aaa);
 
-		for (int i = 0; i < ser_text.length; i++) {
-			String text = searchText(ser_text[i]);
-			System.out.println(text);
 			dr.navigate().back();
-			sleep(2000);
+			Thread.sleep(2000);
 		}
 	}
 
