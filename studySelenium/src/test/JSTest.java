@@ -19,7 +19,7 @@ public class JSTest extends BaseService {
 	public void jSTest() throws InterruptedException {
 		dr.findElement(By.id("kw")).sendKeys("java");
 		dr.findElement(By.id("su")).click();
-		Thread.sleep(4000);
+		sleep("//*[text()='帮助']");
 
 		((JavascriptExecutor) dr).executeScript("arguments[0].scrollIntoView(true);",
 				dr.findElement(By.linkText("帮助")));

@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -51,14 +52,6 @@ public class BaseService {
 		dr.switchTo().frame(frame);
 	}
 
-	public void loginVsp(String user, String pwd, String val) throws InterruptedException {
-		dr.findElement(By.id("loginemail")).sendKeys(props.getProperty(user));// 输入用户名
-		dr.findElement(By.id("loginpassword")).sendKeys(props.getProperty(pwd));// 输入密码
-		dr.findElement(By.id("loginvalidate")).sendKeys(props.getProperty(val));// 输入验证码
-		dr.findElement(By.id("loginbtn")).click();// 登录
-		sleep(8000);
-	}
-
 	public void loginOmp() throws InterruptedException {
 		dr.findElement(By.name("username")).sendKeys(props.getProperty("ompuser"));
 		dr.findElement(By.name("password")).sendKeys(props.getProperty("omppwd"));
@@ -71,23 +64,18 @@ public class BaseService {
 	public void logout() throws InterruptedException {
 		dr.switchTo().defaultContent();
 		dr.findElement(By.id("logout")).click();
-		sleep(3000);
+		sleep("//*[@class='border-bottom']");
 
 		assertEquals("用户登录", dr.findElement(By.className("border-bottom")).getText());
 	}
 
-	public void logoutOmp() throws InterruptedException {
-		dr.switchTo().defaultContent();
-		dr.switchTo().frame(dr.findElement(By.name("header")));
-		dr.findElement(By.linkText("退出")).click();
-		sleep(3000);
-
-		assertEquals("http://58.215.50.61:21080/omp/loginOut", dr.getCurrentUrl());
-		assertEquals("找回密码", dr.findElement(By.xpath("//a[@href='getBackPwd']")).getText());
-	}
-
-	public static void sleep(int num) throws InterruptedException {
-		Thread.sleep(num);
+	public static void sleep(String xp) throws InterruptedException {
+		new WebDriverWait(dr, 30).until(new ExpectedCondition<WebElement>() {
+			@Override
+			public WebElement apply(WebDriver d) {
+				return d.findElement(By.xpath(xp));
+			}
+		});
 	}
 
 	public boolean isElementExsit(WebDriver driver, String xpath) {
