@@ -1,5 +1,6 @@
 package test;
 
+import static org.junit.Assert.assertEquals;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,10 +20,13 @@ public class JSTest extends BaseService {
 	public void jSTest() throws InterruptedException {
 		dr.findElement(By.id("kw")).sendKeys("java");
 		dr.findElement(By.id("su")).click();
-		sleep("//*[text()='帮助']");
+		sleep(3000);
 
 		((JavascriptExecutor) dr).executeScript("arguments[0].scrollIntoView(true);",
 				dr.findElement(By.linkText("帮助")));
+		sleep(2000);
+
+		assertEquals("帮助", dr.findElement(By.xpath("//span[@id='help']/a[1]")).getText());
 	}
 
 	@After

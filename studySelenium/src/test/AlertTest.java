@@ -23,11 +23,11 @@ public class AlertTest extends BaseService {
 		ac.clickAndHold(dr.findElement(By.linkText("设置"))).perform();
 
 		dr.findElement(By.className("setpref")).click();
-		sleep("//*[@class='prefpanelgo']");// 点击设置下的搜索设置
-
+		sleep(2000);// 点击设置下的搜索设置
 		dr.findElement(By.className("prefpanelgo")).click();
+		sleep(2000);
 		dr.switchTo().alert().accept();// 接收弹出框并关闭
-		sleep("//*[@id='su']");
+		sleep(2000);
 
 		assertEquals("百度一下", dr.findElement(By.id("su")).getAttribute("value"));
 	}

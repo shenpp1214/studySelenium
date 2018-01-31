@@ -16,7 +16,7 @@ public class BaiduTest01 extends BaseService {
 	public static String searchTest(String text) throws InterruptedException {
 		dr.findElement(By.id("kw")).sendKeys(text);
 		dr.findElement(By.id("su")).click();
-		Thread.sleep(2000);
+		sleep(2000);
 
 		return dr.getTitle();
 	}
@@ -33,7 +33,7 @@ public class BaiduTest01 extends BaseService {
 			System.out.println(aaa);
 
 			dr.navigate().back();
-			Thread.sleep(2000);
+			sleep(2000);
 		}
 	}
 

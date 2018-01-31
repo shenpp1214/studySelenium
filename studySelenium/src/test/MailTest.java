@@ -30,28 +30,28 @@ public class MailTest extends BaseService {
 		dr.findElement(By.id("qquin")).sendKeys("shenpp");
 		dr.findElement(By.id("pp")).sendKeys("!QAZ2wsx");
 		dr.findElement(By.className("login_btn")).click();
-		sleep("//*[@id='composebtn']");
+		sleep(3000);
 	}
 
 	private void entryWriteMail() throws InterruptedException {
 		dr.findElement(By.id("composebtn")).click();
 		switchIframe("mainFrame");
-		sleep("//div[@id='toAreaCtrl']/div[2]/input");
+		sleep(3000);
 	}
 
 	private void startWriteAndSend() throws InterruptedException {
 		dr.findElement(By.xpath("//div[@id='toAreaCtrl']/div[2]/input")).sendKeys("779230186@qq.com");// 输入收件人
 		dr.findElement(By.id("subject")).sendKeys("自动发送邮件测试");// 主题
 		dr.switchTo().frame(dr.findElement(By.xpath("//*[@id='QMEditorArea']/table/tbody/tr[2]/td/iframe")));
-		sleep("/html/body");
+		sleep(1500);
 
 		dr.findElement(By.tagName("body")).sendKeys("hello,最近过的好吗？20年后你找到期望的自己了嘛？");// 输入正文内容
 		switchIframe("mainFrame");
-		sleep("//input[@name='sendbtn']");
+		sleep(2000);
 
 		dr.findElement(By.name("sendbtn")).click();// 点击发送
 		switchIframe("mainFrame");
-		sleep("//*[@id='sendinfomsg']");
+		sleep(3000);
 
 		assertEquals("您的邮件已发送", dr.findElement(By.id("sendinfomsg")).getText());// 校验邮件发送成功
 	}
@@ -60,7 +60,7 @@ public class MailTest extends BaseService {
 		dr.switchTo().defaultContent();
 		dr.findElement(By.linkText("已发送")).click();// 点击已发送进入已发送的邮件列表
 		switchIframe("mainFrame");
-		sleep("//*[@id='frm']/div[3]/table[1]/tbody/tr/td[2]/div[2]");
+		sleep(2000);
 
 		dr.findElement(By.xpath("//*[@id='frm']/div[3]/table[1]/tbody/tr/td[2]/div[2]")).click();// 点击邮件图标打开新窗口查看邮件详情
 
@@ -72,7 +72,7 @@ public class MailTest extends BaseService {
 			} else {
 				dr.switchTo().window(s);
 				switchIframe("mainFrame");
-				sleep("//*[@id='mailContentContainer']/div[1]");
+				sleep(3000);
 
 				assertEquals("hello,最近过的好吗？20年后你找到期望的自己了嘛？",
 						dr.findElement(By.xpath("//*[@id='mailContentContainer']/div[1]")).getText());
@@ -85,7 +85,7 @@ public class MailTest extends BaseService {
 	private void logoutMail() throws InterruptedException {
 		dr.switchTo().defaultContent();
 		dr.findElement(By.xpath("//div[@id='SetInfo']/div/a[4]")).click();
-		sleep("//*[@id='errorLogout']");// 退出登录
+		sleep(2000);// 退出登录
 
 		assertEquals("你已成功退出邮箱", dr.findElement(By.id("errorLogout")).getText());
 	}

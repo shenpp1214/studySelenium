@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -58,24 +57,19 @@ public class BaseService {
 		dr.findElement(By.xpath("//input[@value='登  录']")).click();
 
 		new WebDriverWait(dr, 15).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.name("main1")));
-		Thread.sleep(2000);
+		sleep(2000);
 	}
 
 	public void logout() throws InterruptedException {
 		dr.switchTo().defaultContent();
 		dr.findElement(By.id("logout")).click();
-		sleep("//*[@class='border-bottom']");
+		sleep(3000);
 
 		assertEquals("用户登录", dr.findElement(By.className("border-bottom")).getText());
 	}
 
-	public static void sleep(String xp) throws InterruptedException {
-		new WebDriverWait(dr, 30).until(new ExpectedCondition<WebElement>() {
-			@Override
-			public WebElement apply(WebDriver d) {
-				return d.findElement(By.xpath(xp));
-			}
-		});
+	public static void sleep(int seconds) throws InterruptedException {
+		Thread.sleep(seconds);
 	}
 
 	public boolean isElementExsit(WebDriver driver, String xpath) {
