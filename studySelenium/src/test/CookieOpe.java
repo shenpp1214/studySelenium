@@ -5,7 +5,6 @@ import java.util.Set;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.Cookie;
 
 import baseService.BaseService;
 
