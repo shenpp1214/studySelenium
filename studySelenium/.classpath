@@ -3,13 +3,13 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="D:/jar/mysql-connector-java-5.1.26-bin.jar"/>
-	<classpathentry kind="lib" path="D:/jar/selenium-server-standalone-2.46.0.jar"/>
-	<classpathentry kind="lib" path="D:/jar/poi/poi-3.9-20121203.jar"/>
-	<classpathentry kind="lib" path="D:/jar/poi/poi-examples-3.9-20121203.jar"/>
-	<classpathentry kind="lib" path="D:/jar/poi/poi-excelant-3.9-20121203.jar"/>
-	<classpathentry kind="lib" path="D:/jar/poi/poi-ooxml-3.9-20121203.jar"/>
-	<classpathentry kind="lib" path="D:/jar/poi/poi-ooxml-schemas-3.9-20121203.jar"/>
-	<classpathentry kind="lib" path="D:/jar/poi/poi-scratchpad-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="F:/jar/mysql-connector-java-5.1.26-bin.jar"/>
+	<classpathentry kind="lib" path="F:/jar/selenium-server-standalone-2.46.0.jar"/>
+	<classpathentry kind="lib" path="F:/jar/poi/poi-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="F:/jar/poi/poi-examples-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="F:/jar/poi/poi-excelant-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="F:/jar/poi/poi-ooxml-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="F:/jar/poi/poi-ooxml-schemas-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="F:/jar/poi/poi-scratchpad-3.9-20121203.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
